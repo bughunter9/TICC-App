@@ -24,7 +24,7 @@ void openScreen() {
  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[900],
+      backgroundColor: Color(0xFF960D0A),
       body: Center(
         child: SpinKitCubeGrid(
           color: Colors.white,
