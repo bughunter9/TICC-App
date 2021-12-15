@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_web_browser/flutter_web_browser.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -63,7 +64,7 @@ class _HomeState extends State<Home> {
                                     )
                                 )
                             ),
-                            onPressed: () => _launchURL
+                            onPressed: () => openBrowserTab(),
                         ),
                       ]
                   )
@@ -76,11 +77,15 @@ class _HomeState extends State<Home> {
   }
 }
 
-_launchURL() async {
-  const url = 'https://docs.google.com/forms/d/e/1FAIpQLSda4FjhkKih3U1mBqfkeH3jVQCzPzro2PsWcqhHfurtFE0RUA/viewform';
-  if (await canLaunch(url)){
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
+// _launchURL() async {
+//   const url = '';
+//   if (await canLaunch(url)){
+//     await launch(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
+
+openBrowserTab() async {
+  await FlutterWebBrowser.openWebPage(url: "https://docs.google.com/forms/d/e/1FAIpQLSda4FjhkKih3U1mBqfkeH3jVQCzPzro2PsWcqhHfurtFE0RUA/viewform");
 }
